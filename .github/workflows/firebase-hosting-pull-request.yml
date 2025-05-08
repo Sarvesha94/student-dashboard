@@ -23,7 +23,8 @@ jobs:
           npm run build  # Make sure you have a build script defined
 
       - name: Firebase deploy
-        uses: wzieba/Firebase-Deploy-Github-Action@v0.3.0
+        uses: wzieba/Firebase-Deploy-Github-Action@v0.5.0
+
         with:
           firebase_token: ${{ secrets.FIREBASE_AUTH_TOKEN }}
           project_id: your-project-id
