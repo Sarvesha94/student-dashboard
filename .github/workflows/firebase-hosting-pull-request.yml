@@ -3,11 +3,12 @@ name: Firebase Hosting CI
 on:
   push:
     branches:
-      - main   # Or whatever branch you want to deploy from
+      - main  # Or your desired branch
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -15,16 +16,15 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'  # You can change the Node.js version if needed
+          node-version: '14'
 
       - name: Install dependencies
         run: |
           npm install
-          npm run build  # Make sure you have a build script defined
+          npm run build  # Ensure you have a build script defined
 
       - name: Firebase deploy
         uses: wzieba/Firebase-Deploy-Github-Action@v0.5.0
-
         with:
           firebase_token: ${{ secrets.FIREBASE_AUTH_TOKEN }}
-          project_id: your-project-id
+          project_id: student-10fab  # Replace with your actual Firebase project ID
